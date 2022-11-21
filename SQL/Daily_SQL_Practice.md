@@ -1,6 +1,7 @@
-SQL Take Away 
 
-196. Delete Duplicate Emails
+## Daily SQL Practice 
+
+### 196. Delete Duplicate Emails
 
 Example 1:
 
@@ -22,8 +23,11 @@ Output:
 +----+------------------+
 Explanation: john@example.com is repeated two times. We keep the row with the smallest Id = 1.
 
-* Utilizing self-join 
-
+**Utilizing self-join** 
+``` 
 DELETE p1
 FROM Person p1, Perosn p2
 WHERE p1.email = p2.email AND p1.id > p2.id;
+
+```
+
