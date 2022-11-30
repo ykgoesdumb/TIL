@@ -137,10 +137,9 @@ Mysql does not have FULL JOIN function so we need to perform FULL JOIN by repeat
 with UNION function. Remember to put alias when making a joint table for FROM.
 
 
-### 1965. Employees With Missing Information
 
+### 1795. Rearrange Products Table
 2022-11-23:
-1795. Rearrange Products Table
 
 ``` 
 Input: 
@@ -186,10 +185,10 @@ WHERE store3 IS NOT NULL;
 SQL TIP
 SELECT 'XXX' AS Column_name will put 'XXX' under Column_name
 
-### 1965. Employees With Missing Information
 
+### 608. Tree Node
 2022-11-24:
-608. Tree Node
+
 ``` 
 SELECT id,
 CASE WHEN P_id IS NULL THEN 'Root'  
@@ -201,5 +200,117 @@ ORDER BY id;
 ``` 
 Must carefully write sub query without syntax error.
 
+### 197. Rising Temperature
+2022-11-29:
+``` 
+Input: 
+Weather table:
++----+------------+-------------+
+| id | recordDate | temperature |
++----+------------+-------------+
+| 1  | 2015-01-01 | 10          |
+| 2  | 2015-01-02 | 25          |
+| 3  | 2015-01-03 | 20          |
+| 4  | 2015-01-04 | 30          |
++----+------------+-------------+
+Output: 
++----+
+| id |
++----+
+| 2  |
+| 4  |
++----+
+Explanation: 
+In 2015-01-02, the temperature was higher than the previous day (10 -> 25).
+In 2015-01-04, the temperature was higher than the previous day (20 -> 30).
+``` 
+**DATEDIFF Function**
+**SELF JOIN**
 
+``` 
+SELECT DISTINCT(w1.id) AS id
+FROM Weather w1, Weather w2
+WHERE w1.temperature > w2.temperature
+AND DATEDIFF(w1.recordDate, w2.recordDate) = 1
+;
+``` 
+### 577. Employee Bonus
+2022-11-29:
+``` 
+Input: 
+Employee table:
++-------+--------+------------+--------+
+| empId | name   | supervisor | salary |
++-------+--------+------------+--------+
+| 3     | Brad   | null       | 4000   |
+| 1     | John   | 3          | 1000   |
+| 2     | Dan    | 3          | 2000   |
+| 4     | Thomas | 3          | 4000   |
++-------+--------+------------+--------+
+Bonus table:
++-------+-------+
+| empId | bonus |
++-------+-------+
+| 2     | 500   |
+| 4     | 2000  |
++-------+-------+
+Output: 
++------+-------+
+| name | bonus |
++------+-------+
+| Brad | null  |
+| John | null  |
+| Dan  | 500   |
++------+-------+
+``` 
 
+``` 
+SELECT e.name, b.bonus
+FROM Employee e
+LEFT JOIN Bonus b USING(empId)
+WHERE b.bonus < 1000 
+OR b.bonus IS NULL
+;
+
+``` 
+### 176. Second Highest Salary
+2022-11-29:
+``` 
+Example 01:
+Input: 
+Employee table:
++----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+Output: 
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+
+Example 02:
+Input: 
+Employee table:
++----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
++----+--------+
+Output: 
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| null                |
++---------------------+
+``` 
+
+****
+
+```
+TBD
+``` 
