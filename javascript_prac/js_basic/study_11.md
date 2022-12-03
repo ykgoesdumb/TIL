@@ -45,6 +45,11 @@ var name = 'javascript'
 
 ## 변수 생성 logic
 
+### hoisting
+- js es6 부터 let, const 포함한 모든 선언 hoisting 함
+- hoisting = var 선언문 이나 function 선어문을 해당 스코프의 선두로 옮긴것 처럼 동작하는 특성
+
+
 선언 >> 초기화 >> 할당
 
 - var 는 선언단계와 초기화 단계 한번에 이루어짐
