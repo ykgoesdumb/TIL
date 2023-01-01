@@ -30,3 +30,28 @@ HTML CSS 등을 동적으로 제어하기 위해서 만들어진 언어
 
 - command +alt +j 누르면 개발자 도구 뜸 (mac)
 - ctrl + shift + j (window)
+
+
+
+DOM
+- 브라우저에서 자바스크립트로 html 을 제어하는 api
+- 자바스크립트 언어 자체는 아니다
+- document oriented model
+- dom tree 의 최상의 node 는 document 객체
+
+DOM tree
+- <html>
+  - <head>  , <body>
+
+- tree 형식으로 되어있는 구조 각각이 node
+
+BOM
+- browser object model
+  
+
+document.getRootNode()
+- 최상위 객체
+
+document.childNodes[1]~~~
+- 차상위 객체
+
