@@ -21,9 +21,10 @@ class Solution:
             if strs.pop(0) != strs.pop():
                 return False
         return True
+
 solution = Solution()
 test_case: str = 'YaY'
-resutl: bool = solution.isPalindrome(test_case)
+result: bool = solution.isPalindrome(test_case)
 print(result)
 
 ```
@@ -58,6 +59,31 @@ import re
         ## ^ 패턴 사용으로 [] 안에 들어간 패턴 이외의 것을 선택하여 ('' 로) 삭제한다 
         s = re.sub('[^a-z0-9]', '',s)
         return s == s[::-1]
+
+```
+
+- 한문장으로 반복문과 조건문을 같이 쓸 수 있음
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+
+        strs = [char.lower() for char in s if char.isalnum()] 
+        return strs == strs[::-1] 
+
+solution = Solution()
+test_case: str = "A man, a plan, a canal: Panama"
+result: bool = solution.isPalindrome(test_case)
+print(result) # 결과 : True
+```
+
+
+
+- 슬라이싱은 내부적으로 C로 구성되어있어서 좋은 기능을 제공한다.
+
+- s[::1] 는 동일함
+- s[::-1]는 뒤집음
+- s[::2]는 2칸씩 앞으로 이동
 
 
 
