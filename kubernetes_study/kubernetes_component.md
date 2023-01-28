@@ -68,6 +68,11 @@ controller 프로세스를 실행하는 control plane 의 component
     - service account & token controller
       - 새로운 네임스페이스에 대한 기본계정과 api 접근 토큰을 생성
 
+
+### 5. cloud-controller-manager
+
+- cluster 를 cloud 공급자의 API 를 연결하고, 해당 클라우드 플랫폼과 상호작용하는 컴포넌트와 클러스터와만 상호작용하는 컴포넌트를 구분 
+
 ---
 
 
