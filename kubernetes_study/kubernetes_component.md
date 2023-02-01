@@ -22,6 +22,7 @@
    - service(svc) = 네트워크 서비스로 pod 집합에서  실행중인 애플리케이션 노출시키는 방법
 ### 3. **container runtime**
    - 컨테이너 실행을 담당하는 소프트웨어
+   - 대표적으로 docker
 
 ---
 ## Control Plane
