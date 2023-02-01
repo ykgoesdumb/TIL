@@ -30,5 +30,15 @@ multipurpose internet mail extensions
 - Content-Type : Application/xslt+xml
 
 
+3. Application 타입
+4. 오디오 타입
+5. Multipart 타입
+6. Text 타입
+7. file 타입
+
+
+
+
+
 
 ref:https://zzandoli.tistory.com/60
