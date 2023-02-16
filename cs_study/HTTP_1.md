@@ -68,8 +68,13 @@ HTTP2.0은 HTTP1.1의 프로토콜을 계승해 동일한 API면서 성능 향�
 - Header Compression
   - http1.1 에서 문제가 되었던 heavy header 를 Header table과 Huffman Encoding 기법(HPACK 압축방식)을 이용해 압축
 
+- SSL
+  - HTTP 2.0 기본적으로 SSL 암호화를 지원하며, HTTPS를 사용하는 것이 권장된다. 이에 비해 HTTP 1.1은 SSL/TLS를 선택적으로 사용할 수 있다
+- protocol
+  - 이진 프로토콜은 텍스트 프로토콜에 비해 더욱 효율적으로 데이터를 전송할 수 있다. 이에 비해 HTTP 1.1은 텍스트 프로토콜을 사용
 
 
+아직까지 HTTP 1.1 을 쓰는 웹페이지 많으며 HTTP 2.0 을 기본으로하는 웹 사이트가 많아지고 있음
 
 
 
