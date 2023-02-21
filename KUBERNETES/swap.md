@@ -23,3 +23,29 @@ Swap 기능은 본래 가용된 메모리보다 더 큰 메모리 할당을 가�
 예전에는 node 에서 swap 이 감지되면 kubelet 이 시작이 되지 않았다 (현재는 지원)
 
 ### 메모리 기반 workload가 너무 많으므로 swap 을 잘 사용하면 유용할 것
+
+
+---
+## 사용방법
+
+- node 별로 swap behavior 를 설정할 수 있다
+- limited 와 unlimited
+
+
+```yaml
+memorySwap:
+  swapBehavior: LimitedSwap
+```
+- default 값이 limited
+- burstable 과 guranteed 를 swap 을 안쓰게 함으로써 불확실성을 낮춤
+- 쿠버네티스 에서 관리되지 않는 workload 는 swap 을 쓸 수 있음
+
+```yaml
+memorySwap:
+  swapBehavior: UnlimitedSwap
+```
+- system limit 까지 사용가능
+
+
+
+
