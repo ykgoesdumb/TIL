@@ -198,5 +198,4 @@ cp  hardlink hardlink_copy
 
 - 리눅스에는 파일 확장자가 없음
 - 다만 구분을 위해서 일관성있는 네이밍이 중요함
-
-
+- conf, repos, d 등등
