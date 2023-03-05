@@ -41,10 +41,15 @@ linux 에서 모든 데이터를 파일로 표현
 
 ### p
 
+- 프로세스간 통신에 쓰이는 파이프 
 ![img src](https://4.bp.blogspot.com/--XM4C06or68/XUFAlNV8g8I/AAAAAAAAAd8/RqkQ_bXxiPEQNbVSeLnftMfCCDAUxP98wCK4BGAYYCw/s640/14.png)
 
 
 ### s
+
+- 소켓파일 : 네트워크 통신에 필요한 파일
+  - 두 호스트 컴퓨터 사이의 정보를 전달
+
 
 ![img src](https://3.bp.blogspot.com/--8aZ1-6o4wM/XUFArKJvZkI/AAAAAAAAAeE/o0aq3iWRhJ8M-BBjrsdQw2sm8HcdiUYHACK4BGAYYCw/s640/13.png)
 
