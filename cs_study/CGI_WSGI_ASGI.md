@@ -38,3 +38,7 @@
   - 길게 유지되어야 하는 연결 (long-poll HTTP, 웹소켓) 과 맞지 않음
 - WSGI 에 대한 호환성을 가지면서 비동기적인 요청을 처리할 수 있는 인터페이스
 - Uvicorn
+
+---
+ref:
+- https://kangbk0120.github.io/articles/2022-02/cgi-wcgi-asgi
