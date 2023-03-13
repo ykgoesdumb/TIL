@@ -70,27 +70,36 @@ ORDER BY start_id
 - **Solve it once again **
 
 ### Leetcode SQL (23/50)
-[xxx. Question name](URL)
+[1747. Leetflex Banned Accounts](https://leetcode.com/problems/leetflex-banned-accounts/)
 
-**Key Learnings Here**
+**JOIN AND BETWEEN**
 
 ``` 
-# Your code 
+SELECT DISTINCT b.account_id
+FROM LogInfo a
+JOIN LogInfo b ON a.account_id = b.account_id AND a.ip_address != b.ip_address
+WHERE b.login BETWEEN a.login AND a.logout
 ``` 
-- Notes
+- SELF JOIN & Between
+- Nothing special
 
 ### Leetcode SQL (24/50)
-[xxx. Question name](URL)
+[550. Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv/)
 
-**Key Learnings Here**
+**SUBQUERY**
 
 ``` 
-# Your code 
+    SELECT ROUND(COUNT(DISTINCT PLAYER_ID) / 
+        (SELECT COUNT(DISTINCT PLAYER_ID) FROM ACTIVITY) 
+    , 2) AS a
+    FROM ACTIVITY 
+    GROUP BY PLAYER_ID
+    HAVING ABS(MIN(EVENT_DATE) - MAX(EVENT_DATE)) = 1
 ``` 
-- Notes
+- ABS to solve all cases**
 
 ### Leetcode SQL (25/50)
-[xxx. Question name](URL)
+[xxx. Question name](URL))
 
 **Key Learnings Here**
 
