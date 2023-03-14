@@ -99,14 +99,23 @@ WHERE b.login BETWEEN a.login AND a.logout
 - ABS to solve all cases**
 
 ### Leetcode SQL (25/50)
-[xxx. Question name](URL))
+[2159. Order Two Columns Independently](https://leetcode.com/problems/order-two-columns-independently/))
 
-**Key Learnings Here**
+**ROW_NUMBER + joine**
 
 ``` 
-# Your code 
+SELECT first_col, second_col
+FROM (
+    SELECT first_col, ROW_NUMBER() OVER(ORDER BY first_col ASC) AS fr
+    FROM Data
+) a
+JOIN (
+    SELECT second_col, ROW_NUMBER() OVER(ORDER BY second_col DESC) AS sr
+    FROM Data
+) b
+ON a.fr = b.sr
 ``` 
-- Notes
+- row_num to play with
 
 ### Leetcode SQL (26/50)
 [xxx. Question name](URL)
