@@ -53,6 +53,11 @@ for k in range(len(deviation)):
 
 ## 해설
 
+- sum
+- 2^31
+- enumerate
+- x>score
+
 ```py
 
 n = int(input())
@@ -60,9 +65,11 @@ m = list(map(int, input().split(' ')))
 
 # 그냥 sum 하면 되는데 for 문을 돌렸다 나는..
 mean = round(sum(m)/n)
+
+# 2^31 이며 이는 정수형이 표현할 수 있는 가장 큰값이다
 Min = 2147000000
 
-
+# enumerate 로 인덱스와 값을 동시에 출력하였다
 for idx, x in enumerate(m):
     deviation=abs(x-mean)
     if deviation < Min:
@@ -74,6 +81,7 @@ for idx, x in enumerate(m):
         if x>score:
             score=x
             res=idx+1
+print(mean, res)
 ```
 
 ## 추가 사항
@@ -91,3 +99,8 @@ for idx, x in enumerate(m):
   - a = 0.45
   - round(a, 1)
   - 0.5
+
+- 그러므로 round 함수는 통상적인 개념과 어긋날 수 있음
+  - a=a+0.5
+  - a=int(a)
+- 위와 같은 방식으로 해결한다
