@@ -96,7 +96,7 @@
 1. 데이터 전송 (클라이언트 -> 서버)
 2. 데이터 잘 받았음 (서버 -> 클라이언트)
 
-### 순서 보잘
+### 순서 보장
 
 ![img src](https://user-images.githubusercontent.com/49462767/227951590-7dbbabc6-2a4b-46fe-9567-a8fd9e7a45bc.png)
 
