@@ -118,41 +118,98 @@ ON a.fr = b.sr
 - row_num to play with
 
 ### Leetcode SQL (26/50)
-[xxx. Question name](URL)
+[1445. 1445. Apples & Oranges](https://leetcode.com/problems/apples-oranges/description/)
 
-**Key Learnings Here**
+**CTE**
 
 ``` 
-# Your code 
+WITH CTE
+AS(SELECT sale_date, CASE WHEN fruit = 'apples' THEN sold_num ELSE -1 * sold_num END as ele
+FROM Sales)
+
+SELECT sale_date, SUM(ele) AS diff FROM CTE
+GROUP BY sale_date 
+```
+
+**CASE**
 ``` 
-- Notes
+SELECT sale_date, SUM(CASE WHEN fruit = 'apples' THEN sold_num ELSE -1 * sold_num END)
+AS Diff
+FROM Sales
+GROUP BY sale_date
+ORDER BY sale_date;
+```
+
+**IF**
+SELECT
+    sale_date, 
+    SUM(
+        IF(fruit = 'apples', sold_num, -sold_num)
+        ) as diff
+FROM Sales
+GROUP BY sale_date
+ORDER BY sale_date
+
+- Tried to solve this with Join, How is the join clause operate?
+- GROUP BY only spits out the first row
 
 ### Leetcode SQL (27/50)
-[xxx. Question name](URL)
+[2084. Drop Type 1 Orders for Customers With Type 0 Orders](https://leetcode.com/problems/drop-type-1-orders-for-customers-with-type-0-orders/description/)
 
-**Key Learnings Here**
+**WHERE**
+``` 
+SELECT *
+FROM Orders
+WHERE order_type = 0 OR customer_id NOT IN (SELECT customer_id FROM Orders WHERE order_type = 0);
+``` 
+**CTE**
+```
+WITH cte AS(SELECT *, MIN(order_type) OVER(PARTITION BY customer_id) AS min
+FROM Orders)
 
-``` 
-# Your code 
-``` 
-- Notes
+SELECT order_id, customer_id, order_type
+FROM cte
+WHERE min = order_type
+ORDER BY order_type DESC
+```
+- NOT IN filters all the id which included some type 0
+- MIN() OVER(PARTITION BY) will identify if partition has the lowest value which is 0
+
+
 
 ### Leetcode SQL (28/50)
-[xxx. Question name](URL)
+[1393. Capital Gain/Loss](https://leetcode.com/problems/capital-gainloss/)
 
-**Key Learnings Here**
+**CTE, IF**
 
 ``` 
-# Your code 
-``` 
-- Notes
+WITH CTE as(
+SELECT *, IF(operation = 'Buy', -price, price) AS cal
+FROM Stocks)
+
+SELECT stock_name, sum(cal) AS capital_gain_loss
+FROM CTE
+GROUP BY stock_name
+```
+
+**IF**
+```
+SELECT stock_name, sum(IF(operation='Sell', price,-price)) AS capital_gain_loss
+FROM Stocks
+GROUP BY stock_name
+```
+- Using CTE was faster solution
 
 ### Leetcode SQL (29/50)
-[xxx. Question name](URL)
+[1783. Grand Slam Titles](https://leetcode.com/problems/grand-slam-titles/description/)
 
-**Key Learnings Here**
+**INNER JOIN OR**
 
 ``` 
-# Your code 
+SELECT p.player_id, p.player_name, SUM(p.player_id = c.Wimbledon) + SUM(p.player_id = c.Fr_open) + SUM(p.player_id = c.US_open) + SUM(p.player_id = c.Au_open) AS grand_slams_count
+FROM Players p
+INNER JOIN Championships c ON p.player_id = Wimbledon or p.player_id = Fr_open or p.player_id = US_open or p.player_id = Au_open
+GROUP BY p.player_id
 ``` 
-- Notes
+- IF using 'OR' clause when INNER JOIN, INNER JOIN builds up for all elements are satisfied
+- WITHOUT GROUP BY, SUM will SUM ALL values in the column
