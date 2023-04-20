@@ -59,3 +59,15 @@ git secret hide
 
 git secret reveal -f
 ```
+
+## key pair, secret key pair 중복 체크
+
+```
+gpg --list-secret-keys
+/Users/kylekim1223/.gnupg/pubring.kbx
+
+gpg --list-keys
+/Users/kylekim1223/.gnupg/pubring.kbx
+```
+
+- 두개를 호출하고 중복되는 이메일을 제거하여야 한다
